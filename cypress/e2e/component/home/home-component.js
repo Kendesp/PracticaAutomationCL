@@ -19,24 +19,32 @@ class homePage {
           getRegistroExitoso: () => cy.get('div[class="Toast_toast-text__E4pea toast-text"]').contains('Gracias por registrarte'),
           getProfileButtonRegistered : () => cy.get('li[class="UserNav_item__E4TKF UserNav_itemReset__gsEOT"]').find('button[class="DropdownMenu_avatarButton__qq1X_"]').should('have.attr','aria-label','auth|Menu'),
           getProfileButtonRegisteredHelloMessage : () => cy.get('ul[class="DropdownMenu_dropdownMenu__2ewYO animate-fade-in-up"]').find('li[class="DropdownMenu_welcome-message__BAhsy"]'),
+          getLoginButton: () => cy.get('button[type="submit"]').find('span').contains('Ingresar'),
+          getBurgermenu: () => cy.get('#navbar').find('div').then(navbar =>{
+            cy.wrap(navbar).eq(2)
+          }),
+          getCategoryEspacioCasa: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]').find('span').contains('ESPACIO DE LA CASA'),
+          getSubCategoryEspacioCasaMueble: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+            cy.wrap(subcategoria).eq(2).find('h5').contains('MUEBLES')
+          }),
+          getSubCategoryEspacioCasaDormitorio: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+            cy.wrap(subcategoria).eq(3).find('h5').contains('DORMITORIO')
+          }),
+          getSubCategoryEspacioCasaSalaLiving: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+            cy.wrap(subcategoria).eq(5).find('h5').contains('LIVING Y SALA DE ESTAR')
+          }),
+          getSubCategoryEspacioCasaBodegaCloset: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+            cy.wrap(subcategoria).eq(8).find('h5').contains('BODEGA Y CLÓSET')
+          }),
+          getSubCategoryEspacioCasaCocina: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+            cy.wrap(subcategoria).eq(8).find('h5').contains('COCINA')
+          }),
+          getCategoryProductos: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]').find('span').contains('PRODUCTOS'),
+          getCategoryNuevos: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]').find('span').contains('Nuevos'),
+          getCategoryMueble: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]').find('span').find('span').contains('Muebles'),
+          getCategoryNinos: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]').find('span').find('span').contains('Niñoideas'),
 
 
-          
-          getDeskSpaces : () => cy.get('div[class="p-1.5 px-4 lg:px-0 flex gap-8 overflow-x-auto lg:overflow-x-visible lg:justify-evenly"]').find('button').then(spaces =>{
-            cy.wrap(spaces).eq(0)
-            }),
-          getMeetingRoompaces : () => cy.get('div[class="p-1.5 px-4 lg:px-0 flex gap-8 overflow-x-auto lg:overflow-x-visible lg:justify-evenly"]').find('button').then(spaces =>{
-            cy.wrap(spaces).eq(1)
-            }),
-          getEventSpace: () => cy.get('div[class="p-1.5 px-4 lg:px-0 flex gap-8 overflow-x-auto lg:overflow-x-visible lg:justify-evenly"]').find('button').then(spaces =>{
-            cy.wrap(spaces).eq(2)
-            }),
-          getOfficeSpace: () => cy.get('div[class="p-1.5 px-4 lg:px-0 flex gap-8 overflow-x-auto lg:overflow-x-visible lg:justify-evenly"]').find('button').then(spaces =>{
-            cy.wrap(spaces).eq(3)
-            }),  
-          getSuiteSpace: () => cy.get('div[class="p-1.5 px-4 lg:px-0 flex gap-8 overflow-x-auto lg:overflow-x-visible lg:justify-evenly"]').find('button').then(spaces =>{
-            cy.wrap(spaces).eq(4)
-            }), 
           getNumberOfResults: () => cy.get('div[class="mb-3 lg:mb-0 relative"]').find('p'),
           getInstantBookingToggle: () => cy.get('button[id="headlessui-switch-:Rb2sn6:"]'),
           getNoResults: () => cy.get('div[class="flex flex-col items-center lg:m-0 m-4"]').find('p'), 
@@ -67,7 +75,7 @@ class homePage {
     fillRegisterForm(){
    
       cy.wait(7000)
-      this.elements.getEmailRegister().type('kendry6@test.com',{force: true})
+      this.elements.getEmailRegister().type('kendry9@test.com',{force: true})
       //cy.wait(3000)
       this.elements.getFNameRegister().type('kendry1',{force: true})
       //cy.wait(3000)
@@ -90,8 +98,67 @@ class homePage {
 
     }
     
-    
+    fillLoginForm(){
+   
+      cy.wait(7000)
+      this.elements.getEmailRegister().type('kendry9@test.com',{force: true})
+      this.elements.getPassRegister().type('Admin1234!')
+      this.elements.getLoginButton().click({force: true})
+      cy.wait(7000)
+      this.elements.getProfileButtonRegistered().click({force:true})
+      this.elements.getProfileButtonRegisteredHelloMessage().contains('¡Hola')
+    }
 
+    clickBurgerMenu(){
+      cy.wait(2000)
+      this.elements.getBurgermenu().click({force: true })
+    }
+
+    clickCategoriaEspacioCasa(){
+      cy.wait(2000),
+      this.elements.getCategoryEspacioCasa().click({force: true })
+    }
+
+    clickSubCategoriaMueblesEspacioCasa(){
+      cy.wait(2000),
+      this.elements.getSubCategoryEspacioCasaMueble().click({force: true })
+    }
+    clickSubCategoriaDormitorioEspacioCasa(){
+      cy.wait(2000),
+      this.elements.getSubCategoryEspacioCasaDormitorio().click({force: true })
+    }
+    clickSubCategoriaSalaLivinEspacioCasa(){
+      cy.wait(2000),
+      this.elements.getSubCategoryEspacioCasaSalaLiving().click({force: true })
+    }
+    clickSubCategoriaBodegaClosetEspacioCasa(){
+      cy.wait(2000),
+      this.elements.getSubCategoryEspacioCasaBodegaCloset().click({force: true })
+    }
+    clickSubCategoriaCocinaEspacioCasa(){
+      cy.wait(2000),
+      this.elements.getSubCategoryEspacioCasaCocina().click({force: true })
+    }
+
+    clickCategoriaProducto(){
+      cy.wait(2000),
+      this.elements.getCategoryProductos().click({force: true })
+    }
+
+    clickCategoriaNuevos(){
+      cy.wait(2000),
+      this.elements.getCategoryNuevos().click({force: true })
+    }
+
+    clickCategoriaMuebles(){
+      cy.wait(2000),
+      this.elements.getCategoryMueble().click({force: true })
+    }
+
+    clickCategoriaNinos(){
+      cy.wait(2000),
+      this.elements.getCategoryNinos().click({force: true })
+    }
 
  }
 
