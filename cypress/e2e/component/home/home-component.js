@@ -1,5 +1,7 @@
 class homePage {
 
+  
+  
     elements = {
 
           getProfileButton : () => cy.get('li[class="UserNav_item__E4TKF UserNav_itemReset__gsEOT"]').find('button[class="Button_root__mZAHs Button_link__DdCCk btn-link UserNav_avatarButton__Zw5Lk"]').should('have.attr','aria-label','Menu'),
@@ -14,6 +16,8 @@ class homePage {
           getPassRegister: () => cy.get('#password'),
           getConfirmPassRegister: () => cy.get('#confirmPassword'),
           getAcceptTermsRegister: () => cy.get('#acceptTerms'),
+          getMobileSearch: () => cy.get('div[class="Navbar_mobile-search-icon__BfW6v"]').find('input'),
+          getSearchIcon: () => cy.get('div[class="Navbar_mobile-search-icon__BfW6v"]').find('button').first(),
           getRegisterButton: () => cy.get('button[type="submit"]').find('span').contains('Regístrate aquí'),
           getCerrarLoginModal: () => cy.get('div[class="Modal_modal-content__unaEP modal-content"]').find('button[class="Button_root__mZAHs Button_link__DdCCk btn-link Modal_close-panel__9W2lq close-panel"]').should('have.attr','aria-label','Cerrar panel'),
           getRegistroExitoso: () => cy.get('div[class="Toast_toast-text__E4pea toast-text"]').contains('Gracias por registrarte'),
@@ -37,27 +41,44 @@ class homePage {
             cy.wrap(subcategoria).eq(8).find('h5').contains('BODEGA Y CLÓSET')
           }),
           getSubCategoryEspacioCasaCocina: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
-            cy.wrap(subcategoria).eq(8).find('h5').contains('COCINA')
+            cy.wrap(subcategoria).eq(10).find('h5').contains('COCINA')
           }),
+          getSubCategoryEspacioCasaComedor: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+            cy.wrap(subcategoria).eq(10).find('h5').contains('COMEDOR')
+          }),
+          getSubCategoryEspacioCasaLavanderia: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+            cy.wrap(subcategoria).eq(15).find('h5').contains('LAVANDERÍA')
+          }),
+          getSubCategoryEspacioCasaBano: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+            cy.wrap(subcategoria).eq(15).find('h5').contains('BAÑO')
+          }),
+          getSubCategoryEspacioCasaNinosBebe: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+            cy.wrap(subcategoria).eq(20).find('h5').contains('NIÑOS Y BEBÉ')
+          }),
+          getSubCategoryEspacioCasaEscritorioPapel: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+            cy.wrap(subcategoria).eq(20).find('h5').contains('ESCRITORIO Y PAPELERÍA')
+          }),
+          getSubCategoryEspacioCasaJardin: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+            cy.wrap(subcategoria).eq(25).find('h5').contains('JARDÍN')
+          }),
+          getSubCategoryEspacioCasaMascotas: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+            cy.wrap(subcategoria).eq(25).find('h5').contains('MASCOTAS')
+          }),
+          getSubCategoryEspacioCasaEscolares: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+            cy.wrap(subcategoria).eq(30).find('h5').contains('ESCOLARES')
+          }),
+          getSubCategoryEspacioCasaAccesoriosPersonales: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+            cy.wrap(subcategoria).eq(30).find('h5').contains('ACCESORIOS PERSONALES')
+          }),
+          getAnySubCategoryEspacioCasa: (subcategoria) => cy.get('div[class="columnGroup_root__UEATy"]').find('div').find('h5').contains(subcategoria),
+
           getCategoryProductos: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]').find('span').contains('PRODUCTOS'),
+          getAnySubCategoryProductos: (subcategoria) => cy.get('div[class="column_root__siq0I pagebuilder-column"]').find('div').find('a').contains(subcategoria),
           getCategoryNuevos: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]').find('span').contains('Nuevos'),
           getCategoryMueble: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]').find('span').find('span').contains('Muebles'),
           getCategoryNinos: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]').find('span').find('span').contains('Niñoideas'),
 
 
-          getNumberOfResults: () => cy.get('div[class="mb-3 lg:mb-0 relative"]').find('p'),
-          getInstantBookingToggle: () => cy.get('button[id="headlessui-switch-:Rb2sn6:"]'),
-          getNoResults: () => cy.get('div[class="flex flex-col items-center lg:m-0 m-4"]').find('p'), 
-          getCityDropDown: () => cy.get('button[id="headlessui-listbox-button-:Rcasn6:"]'),
-          getCityDropdownList: () => cy.get('div[id="or-filter-section-region-dropdown-dialog"]'),
-          getCityDropdownLosAngeles : () => cy.get('div[id="headlessui-dialog-:Rkasn6:').find('ul li').contains('Los Angeles'),
-          getCityDropdownWashingtonDC : () => cy.get('div[id="headlessui-dialog-:Rkasn6:').find('ul li').contains('Washington DC'),
-          getCityDropdownBoston : () => cy.get('div[id="headlessui-dialog-:Rkasn6:').find('ul li').contains('Boston'),
-          getCityDropdownChicago : () => cy.get('div[id="headlessui-dialog-:Rkasn6:').find('ul li').contains('Chicago'),
-          getCityDropdownSanFrancisco : () => cy.get('div[id="headlessui-dialog-:Rkasn6:').find('ul li').contains('San Francisco'),
-          getCityDropdownBrasilia : () => cy.get('div[id="headlessui-dialog-:Rkasn6:').find('ul li').contains('Brasilia'),
-          getBuildingDropDown: () => cy.get('button[id="headlessui-listbox-button-:Rcisn6:"]'),
-          getBuildingDropdownList: () => cy.get('div[id="headlessui-dialog-:Rkisn6:"]') 
     }
 
     clickProfileIcon(){
@@ -139,10 +160,54 @@ class homePage {
       cy.wait(2000),
       this.elements.getSubCategoryEspacioCasaCocina().click({force: true })
     }
+    clickSubCategoriaComedorEspacioCasa(){
+      cy.wait(2000),
+      this.elements.getSubCategoryEspacioCasaComedor().click({force: true })
+    }
+    clickSubCategoriaLavanderiaEspacioCasa(){
+      cy.wait(2000),
+      this.elements.getSubCategoryEspacioCasaLavanderia().click({force: true })
+    }
+    clickSubCategoriaBanoEspacioCasa(){
+      cy.wait(2000),
+      this.elements.getSubCategoryEspacioCasaBano().click({force: true })
+    }
+    clickSubCategoriaNinoBebeEspacioCasa(){
+      cy.wait(2000),
+      this.elements.getSubCategoryEspacioCasaNinosBebe().click({force: true })
+    }
+    clickSubCategoriaEscritorioPapelEspacioCasa(){
+      cy.wait(2000),
+      this.elements.getSubCategoryEspacioCasaEscritorioPapel().click({force: true })
+    }
+    clickSubCategoriaJardinEspacioCasa(){
+      cy.wait(2000),
+      this.elements.getSubCategoryEspacioCasaJardin().click({force: true })
+    }
+    clickSubCategoriaMascotaEspacioCasa(){
+      cy.wait(2000),
+      this.elements.getSubCategoryEspacioCasaMascotas().click({force: true })
+    }
+    clickSubCategoriaEscolaresEspacioCasa(){
+      cy.wait(2000),
+      this.elements.getSubCategoryEspacioCasaEscolares().click({force: true })
+    }
+    clickSubCategoriaAccPersonalEspacioCasa(){
+      cy.wait(2000),
+      this.elements.getSubCategoryEspacioCasaAccesoriosPersonales().click({force: true })
+    }
+    clickAnySubCategoriaEspacioCasa(subcategoria){
+      cy.wait(2000),
+      this.elements.getAnySubCategoryEspacioCasa(subcategoria.toUpperCase()).click({force: true })
+    }
 
     clickCategoriaProducto(){
       cy.wait(2000),
       this.elements.getCategoryProductos().click({force: true })
+    }
+    clickAnySubCategoriaProducto(subcategoria){
+      cy.wait(2000),
+      this.elements.getAnySubCategoryProductos(subcategoria).click({force: true })
     }
 
     clickCategoriaNuevos(){
@@ -158,6 +223,15 @@ class homePage {
     clickCategoriaNinos(){
       cy.wait(2000),
       this.elements.getCategoryNinos().click({force: true })
+    }
+
+    clickInSearch(){
+      cy.wait(2000),
+      this.elements.getSearchIcon().click({force: true })
+    }
+    typeInSearch(busqueda){
+      cy.wait(2000),
+      this.elements.getMobileSearch().type(busqueda,{force: true})
     }
 
  }

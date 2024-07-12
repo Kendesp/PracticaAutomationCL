@@ -28,19 +28,29 @@ describe('Pagina de Inicio', () => {
     cy.wait(3000)
   })
 */
-  it('Click en Categoria Espacio de casa y una subcategoria', () => {
-    homePage.clickBurgerMenu();
-    homePage.clickCategoriaEspacioCasa();
-    homePage.clickSubCategoriaBodegaClosetEspacioCasa();
-    cy.wait(3000)
+  it('Hacer una busqueda', () => {
+    homePage.typeInSearch("mmg");
+    homePage.clickInSearch();
+    cy.wait(15000)
   })
+
 
   it('Click en Categoria Espacio de casa y una subcategoria', () => {
     homePage.clickBurgerMenu();
     homePage.clickCategoriaEspacioCasa();
-    homePage.clickSubCategoriaCocinaEspacioCasa();
+    homePage.clickAnySubCategoriaEspacioCasa("muebles");
+    cy.wait(5000)
+  })
+
+  it('Click en Categoria Productos y una subcategoria', () => {
+    homePage.clickBurgerMenu();
+    homePage.clickCategoriaProducto();
+    homePage.clickAnySubCategoriaProducto("Ofertas");
     cy.wait(3000)
   })
+
+
+
 
   it('Click en Categoria Productos y una subcategoria', () => {
     homePage.clickBurgerMenu();
