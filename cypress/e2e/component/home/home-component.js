@@ -24,6 +24,7 @@ class homePage {
           getProfileButtonRegistered : () => cy.get('li[class="UserNav_item__E4TKF UserNav_itemReset__gsEOT"]').find('button[class="DropdownMenu_avatarButton__qq1X_"]').should('have.attr','aria-label','auth|Menu'),
           getProfileButtonRegisteredHelloMessage : () => cy.get('ul[class="DropdownMenu_dropdownMenu__2ewYO animate-fade-in-up"]').find('li[class="DropdownMenu_welcome-message__BAhsy"]'),
           getLoginButton: () => cy.get('button[type="submit"]').find('span').contains('Ingresar'),
+          getWishlistButton: () => cy.get('div[class="MobileMegaMenu_megamenu-container-bottom__0MVY0"]').find('button').contains('Mi Lista de Deseos'),
           getBurgermenu: () => cy.get('#navbar').find('div').then(navbar =>{
             cy.wrap(navbar).eq(2)
           }),
@@ -232,6 +233,10 @@ class homePage {
     typeInSearch(busqueda){
       cy.wait(2000),
       this.elements.getMobileSearch().type(busqueda,{force: true})
+    }
+
+    clickWishList(){
+      this.elements.getWishlistButton().click({force: true })
     }
 
  }
