@@ -16,6 +16,7 @@ class homePage {
           getPassRegister: () => cy.get('#password'),
           getConfirmPassRegister: () => cy.get('#confirmPassword'),
           getAcceptTermsRegister: () => cy.get('#acceptTerms'),
+          getCartIcon: () => cy.get('div[class="relative flex items-center justify-center"]'),
           getMobileSearch: () => cy.get('div[class="Navbar_mobile-search-icon__BfW6v"]').find('input'),
           getSearchIcon: () => cy.get('div[class="Navbar_mobile-search-icon__BfW6v"]').find('button').first(),
           getRegisterButton: () => cy.get('button[type="submit"]').find('span').contains('Regístrate aquí'),
@@ -237,6 +238,10 @@ class homePage {
 
     clickWishList(){
       this.elements.getWishlistButton().click({force: true })
+    }
+
+    clickCartIcon(){
+      this.elements.getCartIcon().click({force: true })
     }
 
  }
