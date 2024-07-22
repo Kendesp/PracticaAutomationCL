@@ -27,7 +27,19 @@ class cartPage {
           selectPuntoRetiro: () => cy.get('div[class="Checkout_tab__AafbH"]').find('button').then(opciones =>{
             cy.wrap(opciones).eq(2)
           }),
-
+          selectOneClick: () => cy.get('div[class="Checkout_payment-methods__KKfvS"]').find('input').then(opcionesDePago =>{
+            cy.wrap(opcionesDePago).eq(0)
+          }),
+          selectWebPay: () => cy.get('div[class="Checkout_payment-methods__KKfvS"]').find('input').then(opcionesDePago =>{
+            cy.wrap(opcionesDePago).eq(1)
+          }),
+          selectMercadoPago: () => cy.get('div[class="Checkout_payment-methods__KKfvS"]').find('input').then(opcionesDePago =>{
+            cy.wrap(opcionesDePago).eq(2)
+          }),
+          getBotonVerDetalles : () => cy.get('div[class="Checkout_minicart-item-totals-container__oQMEu"]').find('button').contains('Ver detalles'),
+          getDetallesCompraSubTotal : () => cy.get('ul[class="border-t border-accents-3"]').find('li').contains('Subtotal'),
+          getDetallesCompraEnvio : () => cy.get('ul[class="border-t border-accents-3"]').find('li').contains('Costo de Envío'),
+          
     }
 
     clickAddMoreItems(){
@@ -82,6 +94,34 @@ class cartPage {
 
     clickOpcionPuntoRetiro(){
       this.elements.selectPuntoRetiro().click({force:true})
+    }
+
+    clickOpcionOneClick(){
+      this.elements.selectOneClick().click({force:true})
+    }
+
+    clickOpcionWebPay(){
+      this.elements.selectWebPay().click({force:true})
+    }
+
+    clickOpcionMercadoPago(){
+      this.elements.selectMercadoPago().click({force:true})
+    }
+
+    clickVerDetalles(){
+      this.elements.getBotonVerDetalles().click({force:true})
+    }
+
+    validarSubtotalCarrito(){
+      this.elements.getDetallesCompraSubTotal().next()
+    }
+
+    validarCostoEnvioCarrito(){
+      this.elements.getDetallesCompraEnvio().next()
+    }
+
+    sumaDeCostos(){
+      this.elements.getDetallesCompraEnvio().next()
     }
 
  }
