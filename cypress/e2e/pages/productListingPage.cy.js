@@ -6,73 +6,73 @@ import cartPage from '../component/carrito/carrito-component.js';
 describe('Product Listing Page', () => {
   beforeEach(() => {
  
-    cy.visit('/')
+    cy.visit('/').timeMark('Entrada')
     cy.wait(5000)
+    cy.injectAxe()
   });
+
+ 
+  it('Login y Agregar producto al carrito', () => {
+    homePage.clickProfileIcon();
+    homePage.getLoginModal();
+    homePage.fillLoginForm();
+    homePage.typeInSearch("cama");
+    homePage.clickInSearch();
+    productListingPage.clickFirstProducts();
+    productDetailPage.clickAddToCartFromPDP();
+    homePage.clickCartIcon();
+    cy.timeSince('Entrada','Finalizacion de la prueba')
+    //cy.checkA11y()
+  })
 
   it('Login, Agregar mas productos del mismo tipo e ir a pagar', () => {
     homePage.clickProfileIcon();
     homePage.getLoginModal();
     homePage.fillLoginForm();
-    cy.wait(5000)
-    homePage.clickCartIcon();
-    cy.wait(5000)
-    cartPage.clickAddMoreItems();
-    cy.wait(5000)
-    cartPage.clickPayButton();
-    cy.wait(5000)
-  })
-  
-  it('Login y Agregar producto al carrito', () => {
-    homePage.clickProfileIcon();
-    homePage.getLoginModal();
-    homePage.fillLoginForm();
-    cy.wait(5000)
     homePage.typeInSearch("cama");
     homePage.clickInSearch();
-    cy.wait(5000)
     productListingPage.clickFirstProducts();
-    cy.wait(5000)
     productDetailPage.clickAddToCartFromPDP();
-    cy.wait(5000)
     homePage.clickCartIcon();
-    cy.wait(5000)
+    cartPage.clickAddMoreItems();
+    cartPage.clickPayButton();
+    cy.timeSince('Entrada','Finalizacion de la prueba')
+    //cy.checkA11y()
   })
 
   it('Login, hacer una busqueda y guardar en favoritos', () => {
     homePage.clickProfileIcon();
     homePage.getLoginModal();
     homePage.fillLoginForm();
-    cy.wait(5000)
     homePage.typeInSearch("sofa");
     homePage.clickInSearch();
-    cy.wait(15000)
     productListingPage.clickMultipleFavoriteFromPLP();
+    cy.timeSince('Entrada','Finalizacion de la prueba')
+    //cy.checkA11y()
   })
 
   it('Login y verificar guardado en favoritos', () => {
     homePage.clickProfileIcon();
     homePage.getLoginModal();
     homePage.fillLoginForm();
-    cy.wait(5000)
     homePage.clickBurgerMenu();
-    cy.wait(5000)
     homePage.clickWishList();
-    cy.wait(5000)
     productListingPage.verifyFavoritesAreSaved();
+    cy.timeSince('Entrada','Finalizacion de la prueba')
+    //cy.checkA11y()
   })
 
 
-  /*
 
     it('Verificar Precio de la card', () => {
-    homePage.typeInSearch("sofa");
+    homePage.typeInSearch("Juego de sábanas estampado");
     homePage.clickInSearch();
-    cy.wait(5000)
     productListingPage.scrollDown();
     productListingPage.getPriceFromCard();
+    cy.timeSince('Entrada','Finalizacion de la prueba')
+    //cy.checkA11y()
   })
 
-  */
+
 
 })

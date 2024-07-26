@@ -2,7 +2,7 @@ class productDetailPage {
   
     elements = {
 
-          getAddToCartPDP : () => cy.get('div[class="PDP_buttons-container__lrhMg"]').find('button[aria-label="Add to Cart"]'),
+          getAddToCartPDP : () => cy.get('div[class="PDP_buttons-container__lrhMg"]', { timeout: 30000 }).find('button[aria-label="Add to Cart"]'),
           
 
     }

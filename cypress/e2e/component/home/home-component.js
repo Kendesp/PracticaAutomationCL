@@ -4,81 +4,81 @@ class homePage {
   
     elements = {
 
-          getProfileButton : () => cy.get('li[class="UserNav_item__E4TKF UserNav_itemReset__gsEOT"]').find('button[class="Button_root__mZAHs Button_link__DdCCk btn-link UserNav_avatarButton__Zw5Lk"]').should('have.attr','aria-label','Menu'),
-          getLoginModal: () => cy.get('div[class="Forms_root__kckWm"]'),
-          getRegisterLink: () => cy.get('div[class="Auth_form-below-options__eaZ_Z"]').find('span').contains('regístrate aquí'),
-          getEmailRegister: () => cy.get('#email'),
-          getFNameRegister: () => cy.get('#firstName'),
-          getLNameRegister: () => cy.get('#lastName'),
-          getPhoneRegister: () => cy.get('#phone'),
-          getRutRegister: () => cy.get('#rut'),
-          getBirthRegister: () => cy.get('#birthday'),
-          getPassRegister: () => cy.get('#password'),
-          getConfirmPassRegister: () => cy.get('#confirmPassword'),
-          getAcceptTermsRegister: () => cy.get('#acceptTerms'),
-          getCartIcon: () => cy.get('div[class="relative flex items-center justify-center"]'),
-          getMobileSearch: () => cy.get('div[class="Navbar_mobile-search-icon__BfW6v"]').find('input'),
-          getSearchIcon: () => cy.get('div[class="Navbar_mobile-search-icon__BfW6v"]').find('button').first(),
-          getRegisterButton: () => cy.get('button[type="submit"]').find('span').contains('Regístrate aquí'),
-          getCerrarLoginModal: () => cy.get('div[class="Modal_modal-content__unaEP modal-content"]').find('button[class="Button_root__mZAHs Button_link__DdCCk btn-link Modal_close-panel__9W2lq close-panel"]').should('have.attr','aria-label','Cerrar panel'),
-          getRegistroExitoso: () => cy.get('div[class="Toast_toast-text__E4pea toast-text"]').contains('Gracias por registrarte'),
-          getProfileButtonRegistered : () => cy.get('li[class="UserNav_item__E4TKF UserNav_itemReset__gsEOT"]').find('button[class="DropdownMenu_avatarButton__qq1X_"]').should('have.attr','aria-label','auth|Menu'),
-          getProfileButtonRegisteredHelloMessage : () => cy.get('ul[class="DropdownMenu_dropdownMenu__2ewYO animate-fade-in-up"]').find('li[class="DropdownMenu_welcome-message__BAhsy"]'),
-          getLoginButton: () => cy.get('button[type="submit"]').find('span').contains('Ingresar'),
-          getWishlistButton: () => cy.get('div[class="MobileMegaMenu_megamenu-container-bottom__0MVY0"]').find('button').contains('Mi Lista de Deseos'),
-          getBurgermenu: () => cy.get('#navbar').find('div').then(navbar =>{
+          getProfileButton : () => cy.get('li[class="UserNav_item__E4TKF UserNav_itemReset__gsEOT"]', { timeout: 30000 }).find('button[class="Button_root__mZAHs Button_link__DdCCk btn-link UserNav_avatarButton__Zw5Lk"]').should('have.attr','aria-label','Menu'),
+          getLoginModal: () => cy.get('div[class="Forms_root__kckWm"]', { timeout: 30000 }),
+          getRegisterLink: () => cy.get('div[class="Auth_form-below-options__eaZ_Z"]', { timeout: 30000 }).find('span').contains('regístrate aquí'),
+          getEmailRegister: () => cy.get('#email', { timeout: 30000 }),
+          getFNameRegister: () => cy.get('#firstName', { timeout: 30000 }),
+          getLNameRegister: () => cy.get('#lastName', { timeout: 30000 }),
+          getPhoneRegister: () => cy.get('#phone', { timeout: 30000 }),
+          getRutRegister: () => cy.get('#rut', { timeout: 30000 }),
+          getBirthRegister: () => cy.get('#birthday', { timeout: 30000 }),
+          getPassRegister: () => cy.get('#password', { timeout: 30000 }),
+          getConfirmPassRegister: () => cy.get('#confirmPassword', { timeout: 30000 }),
+          getAcceptTermsRegister: () => cy.get('#acceptTerms', { timeout: 30000 }),
+          getCartIcon: () => cy.get('div[class="relative flex items-center justify-center"]', { timeout: 30000 }),
+          getMobileSearch: () => cy.get('div[class="Navbar_mobile-search-icon__BfW6v"]', { timeout: 30000 }).find('input'),
+          getSearchIcon: () => cy.get('div[class="Navbar_mobile-search-icon__BfW6v"]', { timeout: 30000 }).find('button').first(),
+          getRegisterButton: () => cy.get('button[type="submit"]', { timeout: 30000 }).find('span').contains('Regístrate aquí'),
+          getCerrarLoginModal: () => cy.get('div[class="Modal_modal-content__unaEP modal-content"]', { timeout: 30000 }).find('button[class="Button_root__mZAHs Button_link__DdCCk btn-link Modal_close-panel__9W2lq close-panel"]').should('have.attr','aria-label','Cerrar panel'),
+          getRegistroExitoso: () => cy.get('div[class="Toast_toast-text__E4pea toast-text"]', { timeout: 30000 }).contains('Gracias por registrarte'),
+          getProfileButtonRegistered : () => cy.get('li[class="UserNav_item__E4TKF UserNav_itemReset__gsEOT"]').find('button[class="DropdownMenu_avatarButton__qq1X_"]', { timeout: 30000 }).should('have.attr','aria-label','auth|Menu'),
+          getProfileButtonRegisteredHelloMessage : () => cy.get('ul[class="DropdownMenu_dropdownMenu__2ewYO animate-fade-in-up"]', { timeout: 30000 }).find('li[class="DropdownMenu_welcome-message__BAhsy"]'),
+          getLoginButton: () => cy.get('button[type="submit"]', { timeout: 30000 }).find('span').contains('Ingresar'),
+          getWishlistButton: () => cy.get('div[class="MobileMegaMenu_megamenu-container-bottom__0MVY0"]', { timeout: 30000 }).find('button').contains('Mi Lista de Deseos'),
+          getBurgermenu: () => cy.get('#navbar', { timeout: 30000 }).find('div').then(navbar =>{
             cy.wrap(navbar).eq(2)
           }),
-          getCategoryEspacioCasa: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]').find('span').contains('ESPACIO DE LA CASA'),
-          getSubCategoryEspacioCasaMueble: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+          getCategoryEspacioCasa: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]', { timeout: 30000 }).find('span').contains('ESPACIO DE LA CASA'),
+          getSubCategoryEspacioCasaMueble: () => cy.get('div[class="columnGroup_root__UEATy"]', { timeout: 30000 }).find('div').then(subcategoria =>{
             cy.wrap(subcategoria).eq(2).find('h5').contains('MUEBLES')
           }),
-          getSubCategoryEspacioCasaDormitorio: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+          getSubCategoryEspacioCasaDormitorio: () => cy.get('div[class="columnGroup_root__UEATy"]', { timeout: 30000 }).find('div').then(subcategoria =>{
             cy.wrap(subcategoria).eq(3).find('h5').contains('DORMITORIO')
           }),
-          getSubCategoryEspacioCasaSalaLiving: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+          getSubCategoryEspacioCasaSalaLiving: () => cy.get('div[class="columnGroup_root__UEATy"]', { timeout: 30000 }).find('div').then(subcategoria =>{
             cy.wrap(subcategoria).eq(5).find('h5').contains('LIVING Y SALA DE ESTAR')
           }),
-          getSubCategoryEspacioCasaBodegaCloset: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+          getSubCategoryEspacioCasaBodegaCloset: () => cy.get('div[class="columnGroup_root__UEATy"]', { timeout: 30000 }).find('div').then(subcategoria =>{
             cy.wrap(subcategoria).eq(8).find('h5').contains('BODEGA Y CLÓSET')
           }),
-          getSubCategoryEspacioCasaCocina: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+          getSubCategoryEspacioCasaCocina: () => cy.get('div[class="columnGroup_root__UEATy"]', { timeout: 30000 }).find('div').then(subcategoria =>{
             cy.wrap(subcategoria).eq(10).find('h5').contains('COCINA')
           }),
-          getSubCategoryEspacioCasaComedor: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+          getSubCategoryEspacioCasaComedor: () => cy.get('div[class="columnGroup_root__UEATy"]', { timeout: 30000 }).find('div').then(subcategoria =>{
             cy.wrap(subcategoria).eq(10).find('h5').contains('COMEDOR')
           }),
-          getSubCategoryEspacioCasaLavanderia: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+          getSubCategoryEspacioCasaLavanderia: () => cy.get('div[class="columnGroup_root__UEATy"]', { timeout: 30000 }).find('div').then(subcategoria =>{
             cy.wrap(subcategoria).eq(15).find('h5').contains('LAVANDERÍA')
           }),
-          getSubCategoryEspacioCasaBano: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+          getSubCategoryEspacioCasaBano: () => cy.get('div[class="columnGroup_root__UEATy"]', { timeout: 30000 }).find('div').then(subcategoria =>{
             cy.wrap(subcategoria).eq(15).find('h5').contains('BAÑO')
           }),
-          getSubCategoryEspacioCasaNinosBebe: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+          getSubCategoryEspacioCasaNinosBebe: () => cy.get('div[class="columnGroup_root__UEATy"]', { timeout: 30000 }).find('div').then(subcategoria =>{
             cy.wrap(subcategoria).eq(20).find('h5').contains('NIÑOS Y BEBÉ')
           }),
-          getSubCategoryEspacioCasaEscritorioPapel: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+          getSubCategoryEspacioCasaEscritorioPapel: () => cy.get('div[class="columnGroup_root__UEATy"]', { timeout: 30000 }).find('div').then(subcategoria =>{
             cy.wrap(subcategoria).eq(20).find('h5').contains('ESCRITORIO Y PAPELERÍA')
           }),
-          getSubCategoryEspacioCasaJardin: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+          getSubCategoryEspacioCasaJardin: () => cy.get('div[class="columnGroup_root__UEATy"]', { timeout: 30000 }).find('div').then(subcategoria =>{
             cy.wrap(subcategoria).eq(25).find('h5').contains('JARDÍN')
           }),
-          getSubCategoryEspacioCasaMascotas: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+          getSubCategoryEspacioCasaMascotas: () => cy.get('div[class="columnGroup_root__UEATy"]', { timeout: 30000 }).find('div').then(subcategoria =>{
             cy.wrap(subcategoria).eq(25).find('h5').contains('MASCOTAS')
           }),
-          getSubCategoryEspacioCasaEscolares: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+          getSubCategoryEspacioCasaEscolares: () => cy.get('div[class="columnGroup_root__UEATy"]', { timeout: 30000 }).find('div').then(subcategoria =>{
             cy.wrap(subcategoria).eq(30).find('h5').contains('ESCOLARES')
           }),
-          getSubCategoryEspacioCasaAccesoriosPersonales: () => cy.get('div[class="columnGroup_root__UEATy"]').find('div').then(subcategoria =>{
+          getSubCategoryEspacioCasaAccesoriosPersonales: () => cy.get('div[class="columnGroup_root__UEATy"]', { timeout: 30000 }).find('div').then(subcategoria =>{
             cy.wrap(subcategoria).eq(30).find('h5').contains('ACCESORIOS PERSONALES')
           }),
-          getAnySubCategoryEspacioCasa: (subcategoria) => cy.get('div[class="columnGroup_root__UEATy"]').find('div').find('h5').contains(subcategoria),
+          getAnySubCategoryEspacioCasa: (subcategoria) => cy.get('div[class="columnGroup_root__UEATy"]', { timeout: 30000 }).find('div').find('h5').contains(subcategoria),
 
-          getCategoryProductos: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]').find('span').contains('PRODUCTOS'),
-          getAnySubCategoryProductos: (subcategoria) => cy.get('div[class="column_root__siq0I pagebuilder-column"]').find('div').find('a').contains(subcategoria),
-          getCategoryNuevos: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]').find('span').contains('Nuevos'),
-          getCategoryMueble: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]').find('span').find('span').contains('Muebles'),
-          getCategoryNinos: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]').find('span').find('span').contains('Niñoideas'),
+          getCategoryProductos: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]', { timeout: 30000 }).find('span').contains('PRODUCTOS'),
+          getAnySubCategoryProductos: (subcategoria) => cy.get('div[class="column_root__siq0I pagebuilder-column"]', { timeout: 30000 }).find('div').find('a').contains(subcategoria),
+          getCategoryNuevos: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]', { timeout: 30000 }).find('span').contains('Nuevos'),
+          getCategoryMueble: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]', { timeout: 30000 }).find('span').find('span').contains('Muebles'),
+          getCategoryNinos: () => cy.get('div[class="MobileMegaMenu_menu-item__3Neox"]', { timeout: 30000 }).find('span').find('span').contains('Niñoideas'),
 
 
     }
@@ -99,19 +99,23 @@ class homePage {
    
       cy.wait(7000)
       this.elements.getEmailRegister().type('kendry9@test.com',{force: true})
-      //cy.wait(3000)
+      cy.wait(3000)
       this.elements.getFNameRegister().type('kendry1',{force: true})
-      //cy.wait(3000)
+      cy.wait(3000)
       this.elements.getLNameRegister().type('espinosa1',{force: true})
-      //cy.wait(3000)
+      cy.wait(3000)
       this.elements.getPhoneRegister().type('782228200',{force: true})
-      //cy.wait(3000)
+      cy.wait(3000)
       this.elements.getRutRegister().type('3,036,547-K',{force: true})
-      //cy.wait(3000)
+      cy.wait(3000)
       this.elements.getBirthRegister().type('2309',{force: true})
+      cy.wait(3000)
       this.elements.getPassRegister().type('Admin1234!')
+      cy.wait(3000)
       this.elements.getConfirmPassRegister().type('Admin1234!')
+      cy.wait(3000)
       this.elements.getAcceptTermsRegister().click({force: true})
+      cy.wait(3000)
       this.elements.getRegisterButton().click({force: true})
       cy.wait(7000)
       this.elements.getRegistroExitoso().should('be.visible')
@@ -125,10 +129,13 @@ class homePage {
    
       cy.wait(7000)
       this.elements.getEmailRegister().type('kendry9@test.com',{force: true})
+      cy.wait(3000)
       this.elements.getPassRegister().type('Admin1234!')
+      cy.wait(3000)
       this.elements.getLoginButton().click({force: true})
       cy.wait(7000)
       this.elements.getProfileButtonRegistered().click({force:true})
+      cy.wait(3000)
       this.elements.getProfileButtonRegisteredHelloMessage().contains('¡Hola')
     }
 
