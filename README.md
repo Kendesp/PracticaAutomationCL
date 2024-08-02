@@ -10,5 +10,6 @@ y  posteriormente subirlo a sus GitHub personales. (No se dará un repositorio b
 - Instalar un plugin de Cypress que permita evaluar el performance del sitio en todo el flujo. Referencia: https://docs.cypress.io/plugins 
 - En github se debe usar el gitFlow, no se puede entregar una única rama o un único commit.
 
-For the Accesibility plugin I used Cypres-Axe and for the Performance plugin I used Cypress-Time-Marks
+For the Accesibility plugin I used Cypres-Axe and for the Performance plugin I used Cypress-Time-Marks.
+
 This is the link for the Test Cases: https://docs.google.com/spreadsheets/d/1VUg5dFGjKUMKAATtBt8yMuoWAgd9Qffa6yK60CiJCA4/edit?usp=sharing
