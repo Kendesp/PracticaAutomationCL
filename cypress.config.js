@@ -1,4 +1,14 @@
+/*
+import registerDurationMetricsPlugin from 'cypress-duration-metrics/plugin';
 
+export default defineConfig({
+  e2e: {
+    setupNodeEvents(on, config) {
+      registerDurationMetricsPlugin(on);
+    }
+  }
+});
+*/
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
