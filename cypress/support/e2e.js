@@ -12,9 +12,11 @@
 // You can read more here:
 // https://on.cypress.io/configuration
 // ***********************************************************
-import registerDurationMetricsSupport from 'cypress-duration-metrics/support';
-//registerDurationMetricsSupport();
 
+//registerDurationMetricsSupport();
+import registerDurationMetricsSupport from 'cypress-duration-metrics/support';
+registerDurationMetricsSupport();
+import 'cypress-time-marks'
 import 'cypress-axe'
 
 // Import commands.js using ES2015 syntax:
